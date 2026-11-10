@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://heshmatsayad.github.io/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://heshmatsayad.github.io/assets/avatar.jpg</image:loc>
+      <image:title>حشمت صیادپرست</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://heshmatsayad.github.io/assets/cover.jpg</image:loc>
+      <image:title>زمین خاکی فوتبال روستای شهرک ولی‌عصر بدره</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://heshmatsayad.github.io/pictures/heshmat-sayadparast.jpg</image:loc>
+      <image:title>حشمت صیادپرست در تهران</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://heshmatsayad.github.io/assets/grass-ball.jpg</image:loc>
+      <image:title>توپ فوتبال روی چمن ورزشگاه در غروب</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://heshmatsayad.github.io/pictures/grass-pitch-team.jpg</image:loc>
+      <image:title>حشمت صیادپرست در کنار هم‌تیمی‌ها روی چمن ورزشگاه</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://heshmatsayad.github.io/pictures/futsal-team-lineup.jpg</image:loc>
+      <image:title>خط‌آینده تیم فوتسال در سالن ورزشی</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://heshmatsayad.github.io/pictures/heshmat-white-kit.jpg</image:loc>
+      <image:title>حشمت صیادپرست با لباس سفید فوتبال در سالن ورزشی</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://heshmatsayad.github.io/pictures/futsal-player-portrait.jpg</image:loc>
+      <image:title>حشمت صیادپرست در سالن فوتسال</image:title>
+    </image:image>
+  </url>
+</urlset>

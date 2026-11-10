@@ -1,0 +1,448 @@
+/* ============================================================
+   Profile site stylesheet — sections:
+   1 Fonts   2 Tokens   3 Base   4 Navigation   5 Layout
+   6 Profile header   7 About   8 Timeline   9 Playing style
+   10 Legacy   11 Links   12 Gallery   13 Footer
+   14 Not-found (404.html)   15 Motion   16 Responsive
+   ============================================================ */
+
+/* 1 — Fonts (self-hosted Vazir, Rule 3) */
+@font-face {
+  font-family: 'Vazir';
+  src: url('assets/fonts/Vazir-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vazir';
+  src: url('assets/fonts/Vazir-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vazir';
+  src: url('assets/fonts/Vazir-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2 — Tokens */
+:root {
+  --bg: #f3f2ef;
+  --card: #ffffff;
+  --surface: #faf9f6;
+  --ink: #1d1b16;
+  --muted: #6b675c;
+  --text: #3a372f;
+  --line: #e4e0d5;
+  --green: #1e7a46;
+  --green-dark: #14532d;
+  --amber: #d97706;
+  --amber-soft: #fef3e2;
+  --amber-ink: #92580a;
+  --amber-line: #f0dfc0;
+  --radius: 14px;
+  --radius-sm: 12px;
+  --shadow: 0 1px 3px rgba(29, 27, 22, .08), 0 8px 24px rgba(29, 27, 22, .06);
+}
+
+/* 3 — Base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Vazir', Tahoma, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.9;
+}
+
+img { display: block; max-width: 100%; }
+
+picture { display: block; }
+.cover picture { height: 100%; }
+
+/* Accessibility: keyboard skip link + visible focus ring */
+.skip-link {
+  position: absolute;
+  right: -9999px;
+  top: 0;
+  background: var(--green-dark);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  z-index: 100;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  right: 12px;
+  top: 12px;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+/* The skip link focuses <main tabindex="-1">; no ring on the whole page. */
+main:focus { outline: none; }
+
+/* 4 — Navigation */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, .92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.topnav-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.brand-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid var(--green);
+}
+
+.nav-links { display: flex; gap: 4px; }
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background .2s, color .2s;
+}
+
+.nav-links a:hover { background: var(--amber-soft); color: var(--ink); }
+
+/* 5 — Layout */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
+  display: grid;
+  gap: 20px;
+}
+
+/* Keep anchored cards clear of the sticky navigation bar. */
+.card[id] { scroll-margin-top: 76px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+.card h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--amber-soft);
+}
+
+.card p { margin-bottom: 12px; color: var(--text); }
+.card p:last-child { margin-bottom: 0; }
+
+/* 6 — Profile header */
+.profile-card { padding: 0; overflow: hidden; }
+
+.cover { height: 220px; overflow: hidden; }
+.cover img { width: 100%; height: 100%; object-fit: cover; }
+
+.profile-body { padding: 0 28px 28px; }
+
+.avatar {
+  width: 152px;
+  height: 152px;
+  border-radius: 50%;
+  border: 5px solid var(--card);
+  box-shadow: var(--shadow);
+  margin-top: -76px;
+  margin-bottom: 14px;
+  background: var(--card);
+}
+
+.profile-info h1 { font-size: 30px; font-weight: 800; }
+
+.headline { font-size: 16px; color: var(--ink); margin: 6px 0 4px; }
+
+.nickname { color: var(--green-dark); font-weight: 700; }
+
+.meta { font-size: 13.5px; color: var(--muted); }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+
+.tag {
+  font-size: 12.5px;
+  background: var(--amber-soft);
+  color: var(--amber-ink);
+  border: 1px solid var(--amber-line);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+/* 7 — About */
+.about-grid {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.about-photo {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+/* 8 — Timeline */
+.timeline { list-style: none; position: relative; padding-right: 26px; }
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  right: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(var(--green), var(--amber));
+  border-radius: 2px;
+}
+
+.timeline li { position: relative; padding-bottom: 22px; }
+.timeline li:last-child { padding-bottom: 0; }
+
+.timeline-dot {
+  position: absolute;
+  right: -26px;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 4px solid var(--green);
+}
+
+.timeline li:nth-child(even) .timeline-dot { border-color: var(--amber); }
+
+.timeline-content h3 { font-size: 16.5px; }
+
+.card .timeline-place {
+  font-size: 13px;
+  color: var(--amber);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.timeline-content p:last-child { font-size: 14.5px; }
+
+/* 9 — Playing style */
+.style-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.style-item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 20px 16px;
+  text-align: center;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.style-item:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+.style-icon { font-size: 30px; margin-bottom: 10px; }
+
+.style-item h3 { font-size: 15.5px; margin-bottom: 8px; color: var(--green-dark); }
+
+.style-item p { font-size: 13.5px; line-height: 1.8; }
+
+.nickname-banner {
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  border-radius: var(--radius-sm);
+  color: #fff;
+  text-align: center;
+  padding: 26px 20px;
+  display: grid;
+  gap: 4px;
+}
+
+.nickname-label { font-size: 13px; opacity: .85; }
+
+.nickname-title { font-size: 28px; font-weight: 800; }
+
+.nickname-sub { font-size: 13px; opacity: .85; }
+
+/* 10 — Legacy */
+.legacy-card {
+  background: linear-gradient(160deg, #fffdf8, var(--amber-soft));
+  border-color: var(--amber-line);
+}
+
+.legacy-photo {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 18px;
+}
+
+.legacy-card blockquote {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--green-dark);
+  border-right: 4px solid var(--amber);
+  padding-right: 16px;
+  margin-bottom: 16px;
+}
+
+/* 11 — Links */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.link-item {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: var(--green-dark);
+  font-weight: 600;
+  font-size: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 12px;
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+
+.link-item:hover {
+  background: var(--amber-soft);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+/* 12 — Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+/* Portrait crops anchored to the top so the subject's head stays visible. */
+.gallery-item--top img { object-position: top; }
+
+.gallery-item figcaption {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* 13 — Footer */
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 8px 0 16px;
+}
+
+/* 14 — Not-found page (404.html) */
+.nf-wrap { min-height: 70vh; display: grid; place-items: center; padding: 40px 20px; }
+
+.nf-card { max-width: 520px; text-align: center; }
+
+.nf-code { font-size: 72px; font-weight: 900; color: var(--green-dark); line-height: 1; }
+
+.nf-card h1 { font-size: 24px; margin: 12px 0; }
+
+.nf-card p { color: var(--muted); margin-bottom: 20px; }
+
+.nf-home {
+  display: inline-block;
+  background: var(--green);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 10px;
+  transition: background .2s;
+}
+
+.nf-home:hover { background: var(--green-dark); }
+
+/* 15 — Motion */
+body.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+body.js .reveal.visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  body.js .reveal { opacity: 1; transform: none; transition: none; }
+  .style-item, .link-item { transition: none; }
+  .style-item:hover, .link-item:hover { transform: none; }
+}
+
+/* 16 — Responsive */
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .cover { height: 150px; }
+  .avatar { width: 116px; height: 116px; margin-top: -58px; }
+  .profile-info h1 { font-size: 24px; }
+  .card { padding: 20px; }
+  .profile-body { padding: 0 20px 20px; }
+  .style-grid { grid-template-columns: 1fr; }
+  .links-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item img { height: 200px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo { max-width: 280px; margin: 0 auto; }
+  .legacy-photo { height: 150px; }
+  .nickname-title { font-size: 23px; }
+}
